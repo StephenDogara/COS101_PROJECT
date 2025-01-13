@@ -1,52 +1,44 @@
 import tkinter as tk
-from gettext import translation
-from importlib.metadata import entry_points
 from tkinter import messagebox
 
-igbo_dict = {
-    "Hello": "Nnoo",
-    "Dog" : "Nkita",
-    "Food" : "Nri",
-    "Thank you" : "Daalu",
-    "Father": "Nna",
-    "Mother": "Nne",
-    "Brother" : "Nwanne",
-    "Bed" : "Akwa",
-    "Stomach" : "Afo",
-    "Bag" : "Akpa",
-    "School" : "Ulo akwukwo",
-    "Laptop" : "Laptoopu",
-    "Phone" : "Ekwenti",
-    "Love" : "Kauna",
-    "Money" : "Ego",
-    "Hospital" : "Ulö ögwü",
-    "Fork" : "Mkpisi",
-    "Bag" : "Akpa",
-    "Body" : "Ahu",
-    "Duck" : "öbögwü"
+# Dictionary data: French to English
+french_to_english = {
+    "bonjour": "hello",
+    "merci": "thank you",
+    "amour": "love",
+    "maison": "house",
+    "chat": "cat",
+    "chien": "dog",
+    "pomme": "apple",
+    "voiture": "car",
+    "livre": "book",
+    "School": "école"
 }
 
-def translate_word():
-    english_word = entry.get().capitalize()
-    if english_word in igbo_dict:
-        translation = igbo_dict[english_word]
-        messagebox.showinfo("Translation", f"The igbo translation for f'{english_word}'is '{translation}'.")
+# Function to get translation
+def get_translation():
+    french_word = entry.get().strip().lower()  # Get the input from the text box
+    if french_word in french_to_english:
+        translation = french_to_english[french_word]
+        messagebox.showinfo("Translation", f"The English translation of '{french_word}' is: {translation}")
     else:
-        messagebox.showerror("Error",f"'{english_word}' not found in the dictionary.")
+        messagebox.showwarning("Not Found", f"Sorry, no translation found for '{french_word}'.")
 
+# Set up the main application window
 root = tk.Tk()
-root.title("igbo Dictionary")
+root.title("French to English Dictionary")
 
-label = tk.Label(root,text="Enter an English Word:",font=("Arial",14))
-label.pack(pady=10)
-entry = tk.Entry(root, font=("Arial",14),width=30)
-entry.pack(pady=5)
+# Add a label
+label = tk.Label(root, text="Enter a French word:")
+label.pack(padx=30, pady=20)
 
-translate_button = tk.Button(root, text="Translate", command=translate_word,font=("Arial",14))
-translate_button.pack(pady=20)
+# Add an input box (Entry widget)
+entry = tk.Entry(root, width=30)
+entry.pack(padx=20, pady=10)
 
+# Add a button to fetch the translation
+button = tk.Button(root, text="Translate", command=get_translation)
+button.pack(pady=10)
+
+# Run the Tkinter event loop
 root.mainloop()
-
-
-
-
