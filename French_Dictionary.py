@@ -3,15 +3,15 @@ from tkinter import messagebox
 
 # Dictionary data: French to English
 french_to_english = {
-    "bonjour": "hello",
-    "merci": "thank you",
-    "amour": "love",
-    "maison": "house",
-    "chat": "cat",
-    "chien": "dog",
-    "pomme": "apple",
-    "voiture": "car",
-    "livre": "book",
+    "hello": "bonjour",
+    "thank you": "merci",
+    "love": "amour",
+    "house": "maison",
+    "cat": "chat",
+    "dog": "chien",
+    "apple": "pomme",
+    "car": "voiture",
+    "book": "livre",
     "School": "école"
 }
 
